@@ -1,0 +1,34 @@
+﻿<Window x:Class="MvvmLightDemo.View.frmMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MvvmLightDemo.View"
+        mc:Ignorable="d"
+        Title="frmMain" Height="450" Width="800" DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <StackPanel>
+            <Label Content="{Binding Student.Name}"/>
+            <Label Content="{Binding Student.Age}"/>
+            <WrapPanel>
+                 <Button Content="Add Age" Command="{Binding AddAgeCmd}" CommandParameter="5"/>
+            <Button Content="Messenger" Command="{Binding showMsgCmd}"/>
+            <Button  Content="testPage1" Command="{Binding GoPage}" CommandParameter="Page1"/>
+            <Button  Content="testPage2" Command="{Binding GoPage}" CommandParameter="Page2"/>
+            <Button  Content="testPage3" Command="{Binding GoPage}" CommandParameter="Page3"/>
+            <Button  Content="Back" Command="{Binding GoPage}" CommandParameter="Back"/>
+                         
+            </WrapPanel>
+              <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="5" />
+
+ 
+        </StackPanel>
+    </Grid>
+</Window>
